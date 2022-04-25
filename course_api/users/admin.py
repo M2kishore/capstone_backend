@@ -2,12 +2,15 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from course_api.tasks.models import Board, Status, Task
 
 from course_api.users.forms import UserAdminChangeForm, UserAdminCreationForm
 
 User = get_user_model()
 
-
+admin.site.register(Status)
+admin.site.register(Board)
+admin.site.register(Task)
 @admin.register(User)
 class UserAdmin(auth_admin.UserAdmin):
 
